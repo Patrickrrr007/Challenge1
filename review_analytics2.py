@@ -1,4 +1,7 @@
 #留言分析程式
+import time
+# import progressbar
+
 
 data = []
 count = 0
@@ -11,6 +14,9 @@ with open ('reviews.txt', 'r') as f:
 # print('總共有', len(data),'筆資料')
 
 print(data[0])
+
+#文字計數
+start_time = time.time()
 
 #兩個迴圈以上稱：巢狀迴圈
 wc = {} #word count
@@ -25,7 +31,8 @@ for d in data:
 for word in wc:
 	if wc[word] > 1000000:
 		print(word, wc[word], '次')
-
+end_time = time.time()
+print('花了', end_time - start_time, '秒')
 print(len(wc))
 print(wc['Allen'])
 
